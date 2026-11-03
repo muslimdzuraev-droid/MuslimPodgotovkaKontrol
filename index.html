@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Контрольная работа по физике</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef2ff;
+    color: #1e293b;
+}
+
+header {
+    background: #ffffff;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px #00000008;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.header-info {
+    color: #64748b;
+    font-size: 14px;
+}
+
+main {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px;
+}
+
+.presentation {
+    width: 100%;
+    max-width: 950px;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px #33415515;
+}
+
+.slide {
+    display: none;
+    min-height: 510px;
+    padding: 50px;
+    animation: appear 0.3s ease;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cover {
+    text-align: center;
+    padding-top: 90px;
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+}
+
+.cover-icon {
+    font-size: 65px;
+    margin-bottom: 25px;
+}
+
+.cover h1 {
+    font-size: 38px;
+    color: #312e81;
+    margin-bottom: 15px;
+}
+
+.cover p {
+    font-size: 18px;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.variant-label {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #4338ca;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.question-number {
+    color: #6366f1;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 1.4;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.option {
+    padding: 15px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    font-size: 16px;
+}
+
+.answer-box {
+    background: #ecfdf5;
+    border-left: 5px solid #10b981;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 25px;
+}
+
+.answer-title {
+    color: #047857;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.answer-box p {
+    line-height: 1.7;
+    margin: 8px 0;
+}
+
+.explanation {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    line-height: 1.8;
+}
+
+.explanation strong {
+    color: #4338ca;
+}
+
+.navigation {
+    background: #f8fafc;
+    padding: 20px 30px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.progress-bar {
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #6366f1;
+    transition: width 0.3s;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 13px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.back {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.next {
+    background: #4f46e5;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    color: #64748b;
+    padding: 15px;
+    font-size: 13px;
+}
+
+@media(max-width: 600px) {
+
+    header {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .header-info {
+        font-size: 12px;
+    }
+
+    main {
+        padding: 15px 10px;
+    }
+
+    .presentation {
+        border-radius: 16px;
+    }
+
+    .slide {
+        min-height: 570px;
+        padding: 25px 20px;
+    }
+
+    .cover {
+        padding-top: 80px;
+    }
+
+    .cover h1 {
+        font-size: 29px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .navigation {
+        padding: 18px;
+    }
+
+    button {
+        padding: 12px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">📘 Физика · 6 класс</div>
+    <div class="header-info">Учебная презентация</div>
+</header>
+
+<main>
+
+<div class="presentation">
+
+<!-- СЛАЙД 1 -->
+
+<section class="slide active cover">
+
+    <div class="cover-icon">🔬</div>
+
+    <h1>Контрольная работа</h1>
+
+    <p>
+        Физика · 6 класс
+        <br>
+        Два варианта заданий
+    </p>
+
+    <p>
+        Вопросы, правильные ответы
+        <br>
+        и понятные объяснения
+    </p>
+
+    <div style="margin-top:35px">
+        <span class="variant-label">
+            Учебная презентация
+        </span>
+    </div>
+
+</section>
+
+<!-- СЛАЙД 2 -->
+
+<section class="slide cover">
+
+    <div class="cover-icon">📚</div>
+
+    <h1>Вариант 1</h1>
+
+    <p>
+        Разбираем задания
+        <br>
+        шаг за шагом
+    </p>
+
+    <p>
+        Сначала вопрос,
+        <br>
+        затем ответ и объяснение
+    </p>
+
+</section>
+
+<!-- ВАРИАНТ 1 -->
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 1</div>
+
+    <div class="question-number">Задание 1</div>
+
+    <h2>
+        Выберите пару слов, объединяющую названия тел и веществ.
+    </h2>
+
+    <div class="options">
+        <div class="option">А. Шар — воздух</div>
+        <div class="option">Б. Вода — кислород</div>
+        <div class="option">В. Железо — медь</div>
+        <div class="option">Г. Стол — стул</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: шар — воздух
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Шар — это тело, потому что он имеет форму
+            и занимает место.
+        </p>
+
+        <p>
+            Воздух — это вещество, из которого
+            могут состоять тела.
+        </p>
+
+        <p>
+            Тело — предмет, а вещество — то,
+            из чего он сделан.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 1</div>
+
+    <div class="question-number">Задание 2</div>
+
+    <h2>
+        Ю. А. Гагарин 12 апреля 1961 года облетел Землю
+        за 1 ч 48 мин. Его полёт является…
+    </h2>
+
+    <div class="options">
+        <div class="option">А. Гипотезой</div>
+        <div class="option">Б. Экспериментальным фактом</div>
+        <div class="option">В. Предположением</div>
+        <div class="option">Г. Фантазией</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: экспериментальным фактом
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Полёт Гагарина действительно состоялся.
+            Его можно подтвердить и проверить.
+        </p>
+
+        <p>
+            Поэтому это факт, полученный
+            в результате практического опыта.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 1</div>
+
+    <div class="question-number">Задание 3</div>
+
+    <h2>
+        В каком объекте используется электронагреватель?
+    </h2>
+
+    <div class="options">
+        <div class="option">А. В электрическом чайнике</div>
+        <div class="option">Б. В механических часах</div>
+        <div class="option">В. В обычной линейке</div>
+        <div class="option">Г. В деревянном столе</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: в электрическом чайнике
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Электронагреватель превращает
+            электрическую энергию в тепловую.
+        </p>
+
+        <p>
+            В чайнике он нагревает воду.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 1</div>
+
+    <div class="question-number">Задание 4</div>
+
+    <h2>
+        Время в Международной системе единиц (СИ)
+        измеряется в…
+    </h2>
+
+    <div class="options">
+        <div class="option">А. Метрах</div>
+        <div class="option">Б. Килограммах</div>
+        <div class="option">В. Секундах</div>
+        <div class="option">Г. Литрах</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: в секундах
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Секунда — основная единица
+            измерения времени в системе СИ.
+        </p>
+
+        <p>
+            Минуты и часы тоже измеряют время,
+            но в системе СИ используют секунды.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 1</div>
+
+    <div class="question-number">Задание 5</div>
+
+    <h2>
+        Цена деления шкалы прибора,
+        изображённого на рисунке, равна…
+    </h2>
+
+    <div class="options">
+        <div class="option">А. 0,5 с</div>
+        <div class="option">Б. 1 с</div>
+        <div class="option">В. 2 с</div>
+        <div class="option">Г. 5 с</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: 0,5 секунды
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Цена деления показывает,
+            сколько времени соответствует
+            одному маленькому делению шкалы.
+        </p>
+
+        <p>
+            В этом варианте ответ указан
+            как 0,5 секунды.
+        </p>
+
+        <p>
+            Цена деления нужна, чтобы правильно
+            считывать показания прибора.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 1</div>
+
+    <div class="question-number">Задание 6</div>
+
+    <h2>
+        При выполнении лабораторной работы
+        показание термометра следует записать как…
+    </h2>
+
+    <div class="options">
+        <div class="option">А. (35 ± 5) °C</div>
+        <div class="option">Б. (35 ± 1) °C</div>
+        <div class="option">В. (25 ± 5) °C</div>
+        <div class="option">Г. (30 ± 2) °C</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: (35 ± 5) °C
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Термометр показывает около 35 градусов.
+        </p>
+
+        <p>
+            Знак ± означает, что измерение
+            имеет погрешность.
+        </p>
+
+        <p>
+            Температура может немного отличаться
+            от показания прибора.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- НАЧАЛО ВАРИАНТА 2 -->
+
+<section class="slide cover">
+
+    <div class="cover-icon">🌡️</div>
+
+    <h1>Вариант 2</h1>
+
+    <p>
+        Продолжаем изучать
+        <br>
+        вопросы контрольной работы
+    </p>
+
+    <p>
+        Ответы и объяснения
+        <br>
+        простыми словами
+    </p>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 2</div>
+
+    <div class="question-number">Задание 1</div>
+
+    <h2>
+        Выберите пару слов, объединяющую
+        названия веществ и тел.
+    </h2>
+
+    <div class="options">
+        <div class="option">А. Глина — скульптура</div>
+        <div class="option">Б. Стол — стул</div>
+        <div class="option">В. Железо — медь</div>
+        <div class="option">Г. Вода — воздух</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: глина — скульптура
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Глина — вещество, из которого
+            делают предметы.
+        </p>
+
+        <p>
+            Скульптура — тело, потому что
+            она имеет форму и занимает место.
+        </p>
+
+        <p>
+            Из глины можно сделать скульптуру.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 2</div>
+
+    <div class="question-number">Задание 2</div>
+
+    <h2>
+        И. Галле обнаружил планету Нептун.
+        Этот факт является…
+    </h2>
+
+    <div class="options">
+        <div class="option">А. Случайной фантазией</div>
+        <div class="option">Б. Экспериментом, подтверждающим теорию</div>
+        <div class="option">В. Выдумкой</div>
+        <div class="option">Г. Обычным предположением</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: экспериментом, подтверждающим теорию
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Учёные рассчитали, где должна
+            находиться планета.
+        </p>
+
+        <p>
+            Затем Галле направил телескоп
+            в нужное место и обнаружил Нептун.
+        </p>
+
+        <p>
+            Это подтвердило правильность
+            научных расчётов.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 2</div>
+
+    <div class="question-number">Задание 3</div>
+
+    <h2>
+        В каком объекте используется электронагреватель?
+    </h2>
+
+    <div class="options">
+        <div class="option">А. В кофемолке</div>
+        <div class="option">Б. В телевизоре</div>
+        <div class="option">В. В калькуляторе</div>
+        <div class="option">Г. В указанных приборах нагреватель не нужен</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: в указанных приборах нагреватель не нужен
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Кофемолка измельчает зёрна
+            с помощью двигателя.
+        </p>
+
+        <p>
+            Телевизор показывает изображение,
+            а калькулятор выполняет вычисления.
+        </p>
+
+        <p>
+            Электронагреватель не является
+            необходимой частью их работы.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 2</div>
+
+    <div class="question-number">Задание 4</div>
+
+    <h2>
+        Основной единицей длины
+        в Международной системе единиц (СИ) является…
+    </h2>
+
+    <div class="options">
+        <div class="option">А. Секунда</div>
+        <div class="option">Б. Килограмм</div>
+        <div class="option">В. Метр</div>
+        <div class="option">Г. Литр</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: метр
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Метр — основная единица
+            измерения длины.
+        </p>
+
+        <p>
+            Длину комнаты измеряют в метрах,
+            большие расстояния — в километрах,
+            а маленькие предметы — в сантиметрах
+            и миллиметрах.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 2</div>
+
+    <div class="question-number">Задание 5</div>
+
+    <h2>
+        Цена деления шкалы термометра равна…
+    </h2>
+
+    <div class="options">
+        <div class="option">А. 1 °C</div>
+        <div class="option">Б. 2 °C</div>
+        <div class="option">В. 5 °C</div>
+        <div class="option">Г. 10 °C</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: 1 °C
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Цена деления — это температура
+            между двумя соседними маленькими отметками.
+        </p>
+
+        <p>
+            В данном варианте каждое маленькое
+            деление соответствует одному градусу Цельсия.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="slide">
+
+    <div class="variant-label">Вариант 2</div>
+
+    <div class="question-number">Задание 6</div>
+
+    <h2>
+        Показание секундомера следует записать как…
+    </h2>
+
+    <div class="options">
+        <div class="option">А. (22 ± 0,25) с</div>
+        <div class="option">Б. (22 ± 1) с</div>
+        <div class="option">В. (20 ± 2) с</div>
+        <div class="option">Г. (25 ± 0,5) с</div>
+    </div>
+
+    <div class="answer-box">
+
+        <div class="answer-title">
+            ✅ Ответ: (22 ± 0,25) с
+        </div>
+
+        <p>
+            <strong>Объяснение:</strong>
+        </p>
+
+        <p>
+            Секундомер показывает примерно
+            22 секунды.
+        </p>
+
+        <p>
+            Погрешность измерения равна
+            половине цены деления.
+        </p>
+
+        <p>
+            Если цена деления составляет
+            0,5 секунды, то половина составляет
+            0,25 секунды.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ЗАКЛЮЧИТЕЛЬНЫЙ СЛАЙД -->
+
+<section class="slide cover">
+
+    <div class="cover-icon">🎓</div>
+
+    <h1>Спасибо за внимание!</h1>
+
+    <p>
+        Мы разобрали два варианта
+        контрольной работы по физике.
+    </p>
+
+    <p>
+        Теперь ты знаешь вопросы,
+        правильные ответы и их объяснения.
+    </p>
+
+    <div style="margin-top:35px">
+        <span class="variant-label">
+            Конец презентации
+        </span>
+    </div>
+
+</section>
+
+<!-- НАВИГАЦИЯ -->
+
+<div class="navigation">
+
+    <div class="progress-info">
+
+        <span id="slideNumber">
+            Слайд 1
+        </span>
+
+        <span id="slideTotal">
+            Всего 15
+        </span>
+
+    </div>
+
+    <div class="progress-bar">
+
+        <div class="progress-fill" id="progress"></div>
+
+    </div>
+
+    <div class="buttons">
+
+        <button class="back" id="backButton" onclick="previousSlide()">
+            ← Назад
+        </button>
+
+        <button class="next" id="nextButton" onclick="nextSlide()">
+            Далее →
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+    Контрольная работа по физике · Учебная презентация
+</footer>
+
+<script>
+
+const slides = document.querySelectorAll(".slide");
+
+let currentSlide = 0;
+
+const totalSlides = slides.length;
+
+document.getElementById("slideTotal").textContent =
+    "Всего " + totalSlides;
+
+function updateSlide() {
+
+    slides.forEach((slide, index) => {
+
+        slide.classList.toggle(
+            "active",
+            index === currentSlide
+        );
+
+    });
+
+    document.getElementById("slideNumber").textContent =
+        "Слайд " + (currentSlide + 1);
+
+    document.getElementById("progress").style.width =
+        ((currentSlide + 1) / totalSlides * 100) + "%";
+
+    document.getElementById("backButton").disabled =
+        currentSlide === 0;
+
+    document.getElementById("nextButton").textContent =
+        currentSlide === totalSlides - 1
+            ? "В начало ↺"
+            : "Далее →";
+
+}
+
+function nextSlide() {
+
+    if (currentSlide < totalSlides - 1) {
+
+        currentSlide++;
+
+    } else {
+
+        currentSlide = 0;
+
+    }
+
+    updateSlide();
+
+}
+
+function previousSlide() {
+
+    if (currentSlide > 0) {
+
+        currentSlide--;
+
+        updateSlide();
+
+    }
+
+}
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "ArrowRight") {
+
+        nextSlide();
+
+    }
+
+    if (event.key === "ArrowLeft") {
+
+        previousSlide();
+
+    }
+
+});
+
+updateSlide();
+
+</script>
+
+</body>
+</html>
